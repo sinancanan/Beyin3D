@@ -45,6 +45,7 @@ function App() {
     <div className="app">
       <Sidebar
         regions={regions}
+        regionsById={regionsById}
         meshNames={meshNames}
         selectedId={selectedId}
         onSelect={setSelectedId}

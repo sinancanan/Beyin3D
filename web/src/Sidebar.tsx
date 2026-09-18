@@ -1,15 +1,27 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { Region } from "./types";
 
 interface SidebarProps {
   regions: Region[];
+  regionsById: Map<string, Region>;
   meshNames: Set<string>;
   selectedId: string | null;
   onSelect: (id: string | null) => void;
 }
 
-export function Sidebar({ regions, meshNames, selectedId, onSelect }: SidebarProps) {
+function ancestorsOf(id: string, regionsById: Map<string, Region>): string[] {
+  const chain: string[] = [];
+  let current = regionsById.get(id);
+  while (current?.parent_id) {
+    chain.push(current.parent_id);
+    current = regionsById.get(current.parent_id);
+  }
+  return chain;
+}
+
+export function Sidebar({ regions, regionsById, meshNames, selectedId, onSelect }: SidebarProps) {
   const [query, setQuery] = useState("");
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
 
   const childrenByParent = useMemo(() => {
     const map = new Map<string | null, Region[]>();
@@ -20,6 +32,33 @@ export function Sidebar({ regions, meshNames, selectedId, onSelect }: SidebarPro
     }
     return map;
   }, [regions]);
+
+  // when a region gets selected (3D click, search, breadcrumb) reveal it in the tree
+  useEffect(() => {
+    if (!selectedId) return;
+    const ancestors = ancestorsOf(selectedId, regionsById);
+    if (ancestors.length === 0) return;
+    setExpanded((prev) => {
+      const next = new Set(prev);
+      let changed = false;
+      for (const id of ancestors) {
+        if (!next.has(id)) {
+          next.add(id);
+          changed = true;
+        }
+      }
+      return changed ? next : prev;
+    });
+  }, [selectedId, regionsById]);
+
+  const toggle = (id: string) => {
+    setExpanded((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
 
   const searchResults = useMemo(() => {
     const q = query.trim().toLocaleLowerCase("tr");
@@ -66,6 +105,8 @@ export function Sidebar({ regions, meshNames, selectedId, onSelect }: SidebarPro
             childrenByParent={childrenByParent}
             meshNames={meshNames}
             selectedId={selectedId}
+            expanded={expanded}
+            onToggle={toggle}
             onSelect={onSelect}
             depth={0}
           />
@@ -80,24 +121,51 @@ interface TreeNodeProps {
   childrenByParent: Map<string | null, Region[]>;
   meshNames: Set<string>;
   selectedId: string | null;
+  expanded: Set<string>;
+  onToggle: (id: string) => void;
   onSelect: (id: string | null) => void;
   depth: number;
 }
 
-function TreeNode({ nodes, childrenByParent, meshNames, selectedId, onSelect, depth }: TreeNodeProps) {
+function TreeNode({
+  nodes,
+  childrenByParent,
+  meshNames,
+  selectedId,
+  expanded,
+  onToggle,
+  onSelect,
+  depth,
+}: TreeNodeProps) {
   return (
     <ul className="tree" style={{ paddingLeft: depth === 0 ? 0 : 14 }}>
       {nodes.map((r) => {
         const kids = childrenByParent.get(r.id) ?? [];
+        const isOpen = expanded.has(r.id);
         return (
           <li key={r.id}>
-            <RegionRow region={r} hasMesh={meshNames.has(r.id)} selected={selectedId === r.id} onSelect={onSelect} />
-            {kids.length > 0 && (
+            <div className="tree-row">
+              {kids.length > 0 ? (
+                <button
+                  className={`tree-toggle${isOpen ? " tree-toggle--open" : ""}`}
+                  onClick={() => onToggle(r.id)}
+                  aria-label={isOpen ? "Daralt" : "Genişlet"}
+                >
+                  ▸
+                </button>
+              ) : (
+                <span className="tree-toggle tree-toggle--spacer" />
+              )}
+              <RegionRow region={r} hasMesh={meshNames.has(r.id)} selected={selectedId === r.id} onSelect={onSelect} />
+            </div>
+            {kids.length > 0 && isOpen && (
               <TreeNode
                 nodes={kids}
                 childrenByParent={childrenByParent}
                 meshNames={meshNames}
                 selectedId={selectedId}
+                expanded={expanded}
+                onToggle={onToggle}
                 onSelect={onSelect}
                 depth={depth + 1}
               />
@@ -124,9 +192,10 @@ function RegionRow({
     <button
       className={`region-row${selected ? " region-row--selected" : ""}${!hasMesh ? " region-row--nomesh" : ""}`}
       onClick={() => onSelect(selected ? null : region.id)}
-      title={hasMesh ? undefined : "3D modelde henüz ayrı bir yapı yok"}
+      title={hasMesh ? undefined : "3D modelde henüz ayrı bir yapı yok, ama bilgi metni mevcut"}
     >
       {region.name_tr}
+      {!hasMesh && <span className="region-row__tag">metin</span>}
     </button>
   );
 }
