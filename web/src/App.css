@@ -158,6 +158,31 @@ body {
 .viewport {
   position: relative;
   min-width: 0;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.nav-hint {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding: 7px 16px;
+  background: rgba(28, 31, 36, 0.55);
+  backdrop-filter: blur(6px);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.74rem;
+  pointer-events: none;
+}
+
+.nav-hint__icon {
+  margin-right: 5px;
 }
 
 .viewport__toolbar {

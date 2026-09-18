@@ -134,6 +134,18 @@ function App() {
             maxDistance={1.2}
           />
         </Canvas>
+
+        <div className="nav-hint">
+          <span>
+            <span className="nav-hint__icon">🤏</span> Pinch: yakınlaştır
+          </span>
+          <span>
+            <span className="nav-hint__icon">🖱️</span> Tıkla + sürükle: döndür
+          </span>
+          <span>
+            <span className="nav-hint__icon">⌘</span> Command + sürükle: modeli kaydır
+          </span>
+        </div>
       </main>
 
       <InfoPanel

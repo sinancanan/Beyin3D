@@ -1,6 +1,7 @@
 import bpy
 import json
 import os
+import mathutils
 
 BASE = "/Users/sinancanan/Desktop/CLAUDE/Beyin3D"
 
@@ -8,6 +9,25 @@ with open(os.path.join(BASE, "data", "_export_list.json"), encoding="utf-8") as 
     plan = json.load(f)
 
 export_map = plan["export"]  # region_id -> [zanatomy object names]
+
+with open(os.path.join(BASE, "data", "beyin-bolgeleri.json"), encoding="utf-8") as f:
+    _regions = json.load(f)["regions"]
+with open(os.path.join(BASE, "data", "zanatomy-eslestirme.json"), encoding="utf-8") as f:
+    _mappings = json.load(f)["mappings"]
+_region_category = {r["id"]: r["category"] for r in _regions}
+# every source object that belongs to a cortex ("korteks-alani") region gets
+# inflated ~18% from its own local centroid before joining. The cortex was
+# segmented as many independent gyri with no shared topology, so small real
+# gaps exist between neighbors (most visibly around the insula, which has no
+# source geometry at all and is normally hidden under opercula we also don't
+# have) - through these gaps the subcortical structures showed through in
+# anatomically wrong places. A uniform per-piece inflation closes those seams
+# without needing precise manual boundary-matching.
+CORTEX_INFLATE = 1.18
+_cortex_source_objects = set()
+for m in _mappings:
+    if _region_category.get(m["region_id"]) == "korteks-alani":
+        _cortex_source_objects.update(m["zanatomy_objects"])
 
 depsgraph = bpy.context.evaluated_depsgraph_get()
 
@@ -31,6 +51,16 @@ for region_id, src_names in export_map.items():
         dup = bpy.data.objects.new(f"{region_id}__part", mesh_data)
         dup.matrix_world = src.matrix_world.copy()
         out_coll.objects.link(dup)
+
+        if src_name in _cortex_source_objects and len(mesh_data.vertices) > 0:
+            local_center = mathutils.Vector()
+            for v in mesh_data.vertices:
+                local_center += v.co
+            local_center /= len(mesh_data.vertices)
+            for v in mesh_data.vertices:
+                v.co = local_center + (v.co - local_center) * CORTEX_INFLATE
+            mesh_data.update()
+
         dup_objs.append(dup)
 
     if missing_here:
