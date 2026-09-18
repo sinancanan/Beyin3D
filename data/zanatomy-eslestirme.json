@@ -10,10 +10,10 @@
     "note": "Nesne adlari cogunlukla .l/.r (sol/sag) ekiyle ikili geliyor; bazilari .g/.j gibi ek harflerle de cogaltilmis - bu eklerin tam anlami (muhtemelen sistem/katman gruplamasi) Blender'da dosya acilip dogrulanmali."
   },
   "stats": {
-    "toplam_bolge": 106,
-    "direct": 65,
+    "toplam_bolge": 107,
+    "direct": 67,
     "composite": 18,
-    "derived": 12,
+    "derived": 11,
     "missing": 11
   },
   "mappings": [
@@ -52,11 +52,16 @@
     },
     {
       "region_id": "prefrontal-korteks",
-      "match_type": "derived",
+      "match_type": "direct",
       "zanatomy_objects": [
-        "Frontal lobe.j"
+        "Superior frontal gyrus.l",
+        "Superior frontal gyrus.r",
+        "Middle frontal gyrus.l",
+        "Middle frontal gyrus.r",
+        "Transverse frontopolar gyrus and sulcus*.l",
+        "Transverse frontopolar gyrus and sulcus*.r"
       ],
-      "note": "Ayrı bir mesh yok; Frontal lobe mesh'inin motor/premotor alanlar çıkarıldıktan sonraki ön kısmı olarak tanımlanabilir (üst düzey grup düğümü). (Düzeltme: Frontal lobe.g aslında 3D metin etiketi (FONT tipi obje) olduğu için çıkarıldı, .j varyantı gerçek geometri.)"
+      "note": "İlk taramada gözden kaçmıştı: atlasta 'Superior frontal gyrus' ve 'Middle frontal gyrus' gerçek, ayrı mesh olarak mevcut ve prefrontal korteksin görünür yüzeyinin büyük kısmını oluşturuyor. Frontal kutup için 'Transverse frontopolar gyrus and sulcus' eklendi."
     },
     {
       "region_id": "dorsolateral-prefrontal-korteks",
@@ -75,9 +80,13 @@
       "match_type": "direct",
       "zanatomy_objects": [
         "Orbital gyri.l",
-        "Orbital gyri.r"
+        "Orbital gyri.r",
+        "Orbital part of  inferior frontal gyrus.l",
+        "Orbital part of  inferior frontal gyrus.r",
+        "Straight gyrus (Gyrus rectus).l",
+        "Straight gyrus (Gyrus rectus).r"
       ],
-      "note": "TA karşılığı 'Orbital gyri' — tam örtüşmüyor ama en yakın anatomik eşdeğer."
+      "note": "TA karşılığı 'Orbital gyri' — tam örtüşmüyor ama en yakın anatomik eşdeğer. Genişletme: inferior frontal girusun orbital parçası ve gyrus rectus (straight gyrus) da orbital yüzeyin parçası olarak eklendi."
     },
     {
       "region_id": "broca-alani",
@@ -240,9 +249,13 @@
         "Lingual gyrus.l",
         "Lingual gyrus.r",
         "Lateral occipital gyrus (Middle occipital gyrus*).l",
-        "Lateral occipital gyrus (Middle occipital gyrus*).r"
+        "Lateral occipital gyrus (Middle occipital gyrus*).r",
+        "Inferior occipital gyrus and sulcus*.l",
+        "Inferior occipital gyrus and sulcus*.r",
+        "Superior occipital gyri.l",
+        "Superior occipital gyri.r"
       ],
-      "note": "V2-V5 için tek bir TA karşılığı yok; oksipital lobun calcarine sulcus dışındaki gyrusları (cuneus, lingual gyrus, lateral occipital gyrus) birleşik olarak kullanılabilir."
+      "note": "V2-V5 için tek bir TA karşılığı yok; oksipital lobun calcarine sulcus dışındaki gyrusları (cuneus, lingual gyrus, lateral occipital gyrus) birleşik olarak kullanılabilir. Genişletme: ilk taramada gözden kaçan 'Inferior occipital gyrus' ve 'Superior occipital gyri' eklendi."
     },
     {
       "region_id": "insula",
@@ -894,6 +907,15 @@
         "Choroid plexus.r"
       ],
       "note": null
+    },
+    {
+      "region_id": "paracentral-lobul",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Paracentral gyrus and sulcus*.l",
+        "Paracentral gyrus and sulcus*.r"
+      ],
+      "note": "TA'da 'Paracentral gyrus and sulcus' olarak geçen, precentral/postcentral girusun medial yüzeydeki devamı."
     }
   ]
 }

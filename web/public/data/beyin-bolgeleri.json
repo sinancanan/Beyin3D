@@ -955,6 +955,15 @@
       "category": "yapi",
       "description_short": "Hipotalamusta üretilen oksitosin ve vazopressin hormonlarını kan dolaşımına salan hipofiz bezinin arka bölümü.",
       "description_long": "Nörohipofiz (arka hipofiz), gerçek bir bez dokusu değil, hipotalamustaki sinir hücrelerinin uzantılarından oluşan bir 'depo ve salınım' bölgesidir. Oksitosin ve vazopressin (antidiüretik hormon) adlı iki hormon, aslında hipotalamusta üretilir, sinir uzantıları boyunca buraya taşınır ve kana buradan salgılanır. Vazopressin böbreklerden su geri emilimini artırarak vücut sıvı dengesini korurken, oksitosin doğum, emzirme ve sosyal bağlanma/güven duygusunda rol oynar ('sevgi hormonu' olarak da bilinir). Susuz kaldığımızda idrarımızın koyulaşması ya da bir yakınımıza sarılırken hissettiğimiz sıcaklık duygusu bu bölümün salgıladığı hormonlarla ilişkilidir."
+    },
+    {
+      "id": "paracentral-lobul",
+      "name_tr": "Paracentral Lobül",
+      "name_en": "Paracentral Lobule",
+      "parent_id": "frontal-lob",
+      "category": "korteks-alani",
+      "description_short": "Bacak ve ayağın motor ve duyusal temsilini barındıran, beynin iç (medial) yüzeyindeki lobül.",
+      "description_long": "Paracentral lobül, precentral ve postcentral girusların beynin iç (medial) yüzeyine doğru devam eden, birbirine kaynaşmış halidir; iki hemisfer arasındaki boşluğa bakan bu yüzeyde yer alır. Ön kısmı bacağın istemli hareketini (primer motor korteksin bacak temsili), arka kısmı ise bacaktan gelen dokunma ve pozisyon duyusunu (primer somatosensoriyel korteksin bacak temsili) işler. Precentral ve postcentral giruslarla doğrudan devamlılık gösterir, motor ve duyusal homunkulusun 'bacak' kısmının dış yüzeydeki şeritten iç yüzeye taştığı bölgedir. Yürürken bacaklarımızı bilinçli olarak hareket ettirebilmemiz ve ayak tabanımıza basan zemini hissedebilmemiz bu lobülün katkısıyla mümkün olur."
     }
   ]
 }

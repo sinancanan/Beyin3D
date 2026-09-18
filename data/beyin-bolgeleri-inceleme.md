@@ -1,6 +1,6 @@
 # Beyin Bölgeleri — İnceleme Dökümanı
 
-Toplam kayıt: **106**  
+Toplam kayıt: **107**  
 Kaynak dosya: `data/beyin-bolgeleri.json`
 
 ---
@@ -105,6 +105,14 @@ Broca alanı, çoğu insanda sol frontal lobda, alt frontal girusun arka kısmı
 **Kısa tanım:** İstemli göz hareketlerini yönlendiren, frontal lobun üst-yan kesimindeki motor alan.
 
 Frontal göz alanı, frontal lobun üst-yan (dorsolateral) kesiminde, primer motor korteksin hemen önünde yer alır ve gözlerin istemli, hedefe yönelik hareketlerini (sakkad) planlayıp başlatır. Oksipital lobdaki görsel korteksten ve parietal lobdan gelen bilgiyi kullanarak bakışı dikkat çekici bir nesneye ya da hedefe yönlendirir. Beyin sapındaki göz hareketi çekirdekleriyle doğrudan bağlantı kurarak göz kaslarına komut gönderir. Bir sayfada satır boyunca gözü kaydırmak, kalabalıkta tanıdık bir yüzü ararken bakışı hızla nesneden nesneye atlatmak gibi günlük eylemlerde bu alan aktiftir.
+
+#### <a id="paracentral-lobul"></a>Paracentral Lobül
+
+*Paracentral Lobule* &nbsp;·&nbsp; `Korteks Alanı` &nbsp;·&nbsp; id: `paracentral-lobul`
+
+**Kısa tanım:** Bacak ve ayağın motor ve duyusal temsilini barındıran, beynin iç (medial) yüzeyindeki lobül.
+
+Paracentral lobül, precentral ve postcentral girusların beynin iç (medial) yüzeyine doğru devam eden, birbirine kaynaşmış halidir; iki hemisfer arasındaki boşluğa bakan bu yüzeyde yer alır. Ön kısmı bacağın istemli hareketini (primer motor korteksin bacak temsili), arka kısmı ise bacaktan gelen dokunma ve pozisyon duyusunu (primer somatosensoriyel korteksin bacak temsili) işler. Precentral ve postcentral giruslarla doğrudan devamlılık gösterir, motor ve duyusal homunkulusun 'bacak' kısmının dış yüzeydeki şeritten iç yüzeye taştığı bölgedir. Yürürken bacaklarımızı bilinçli olarak hareket ettirebilmemiz ve ayak tabanımıza basan zemini hissedebilmemiz bu lobülün katkısıyla mümkün olur.
 
 ### <a id="parietal-lob"></a>Parietal Lob
 

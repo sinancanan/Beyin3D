@@ -1,27 +1,33 @@
 # Z-Anatomy Eşleştirme Dökümanı
 
-Toplam bölge: **106** — Doğrudan: 65 · Birleşim/Grup: 18 · Türetilebilir: 12 · Yok: 11
+Toplam bölge: **107** — Doğrudan: 67 · Birleşim/Grup: 18 · Türetilebilir: 11 · Yok: 11
 
 **Kaynak:** Z-Anatomy (Models-of-human-anatomy) (https://github.com/Z-Anatomy/Models-of-human-anatomy)  
 **Lisans:** CC BY-SA 4.0 (temel BodyParts3D icerigi: CC BY-SA 2.1 Japan) — atif + ayni lisansla paylasma sartiyla ticari kullanima acik  
 **İncelenen dosya:** Z-Anatomy/Startup.blend (Blender v3.5, indirilen zip ~82.7MB, acilmis blend ~307MB)  
 **Not:** Nesne adlari cogunlukla .l/.r (sol/sag) ekiyle ikili geliyor; bazilari .g/.j gibi ek harflerle de cogaltilmis - bu eklerin tam anlami (muhtemelen sistem/katman gruplamasi) Blender'da dosya acilip dogrulanmali.
 
-**glTF dışa aktarma durumu:** 69 bölge `models/beyin-bolgeleri.glb` içine gerçek, isimlendirilmiş (region id ile birebir) mesh olarak aktarıldı. Kalan bölgeler ya kavramsal grup düğümü, ya başka bir bölgeyle aynı geometriyi paylaştığı için ileride elle bölünmeyi bekliyor, ya da atlasta hiç karşılığı yok.
+**glTF dışa aktarma durumu:** 71 bölge `models/beyin-bolgeleri.glb` içine gerçek, isimlendirilmiş (region id ile birebir) mesh olarak aktarıldı.
 
 ---
 
-## ✅ Doğrudan (65)
+## ✅ Doğrudan (67)
 
 ### Primer Motor Korteks  `primer-motor-korteks`
 
 **Z-Anatomy obje(ler)i:** `Precentral gyrus.l`, `Precentral gyrus.r`
 
+### Prefrontal Korteks  `prefrontal-korteks`
+
+**Z-Anatomy obje(ler)i:** `Superior frontal gyrus.l`, `Superior frontal gyrus.r`, `Middle frontal gyrus.l`, `Middle frontal gyrus.r`, `Transverse frontopolar gyrus and sulcus*.l`, `Transverse frontopolar gyrus and sulcus*.r`
+
+> İlk taramada gözden kaçmıştı: atlasta 'Superior frontal gyrus' ve 'Middle frontal gyrus' gerçek, ayrı mesh olarak mevcut ve prefrontal korteksin görünür yüzeyinin büyük kısmını oluşturuyor. Frontal kutup için 'Transverse frontopolar gyrus and sulcus' eklendi.
+
 ### Orbitofrontal Korteks  `orbitofrontal-korteks`
 
-**Z-Anatomy obje(ler)i:** `Orbital gyri.l`, `Orbital gyri.r`
+**Z-Anatomy obje(ler)i:** `Orbital gyri.l`, `Orbital gyri.r`, `Orbital part of  inferior frontal gyrus.l`, `Orbital part of  inferior frontal gyrus.r`, `Straight gyrus (Gyrus rectus).l`, `Straight gyrus (Gyrus rectus).r`
 
-> TA karşılığı 'Orbital gyri' — tam örtüşmüyor ama en yakın anatomik eşdeğer.
+> TA karşılığı 'Orbital gyri' — tam örtüşmüyor ama en yakın anatomik eşdeğer. Genişletme: inferior frontal girusun orbital parçası ve gyrus rectus (straight gyrus) da orbital yüzeyin parçası olarak eklendi.
 
 ### Primer Somatosensoriyel Korteks  `primer-somatosensoriyel-korteks`
 
@@ -317,6 +323,12 @@ Toplam bölge: **106** — Doğrudan: 65 · Birleşim/Grup: 18 · Türetilebilir
 
 **Z-Anatomy obje(ler)i:** `Choroid plexus.l`, `Choroid plexus.r`
 
+### Paracentral Lobül  `paracentral-lobul`
+
+**Z-Anatomy obje(ler)i:** `Paracentral gyrus and sulcus*.l`, `Paracentral gyrus and sulcus*.r`
+
+> TA'da 'Paracentral gyrus and sulcus' olarak geçen, precentral/postcentral girusun medial yüzeydeki devamı.
+
 ---
 
 ## 🧩 Birleşim/Grup (18)
@@ -431,7 +443,7 @@ Toplam bölge: **106** — Doğrudan: 65 · Birleşim/Grup: 18 · Türetilebilir
 
 ---
 
-## 🔧 Türetilebilir (12)
+## 🔧 Türetilebilir (11)
 
 ### Premotor Korteks  `premotor-korteks`
 
@@ -444,12 +456,6 @@ Toplam bölge: **106** — Doğrudan: 65 · Birleşim/Grup: 18 · Türetilebilir
 **Z-Anatomy obje(ler)i:** _(yok)_
 
 > Ayrı mesh yok; frontal lobun iç (medial) yüzeyinde, precentral gyrusun hemen önünde şematik alt-bölge olarak işaretlenebilir.
-
-### Prefrontal Korteks  `prefrontal-korteks`
-
-**Z-Anatomy obje(ler)i:** `Frontal lobe.j`
-
-> Ayrı bir mesh yok; Frontal lobe mesh'inin motor/premotor alanlar çıkarıldıktan sonraki ön kısmı olarak tanımlanabilir (üst düzey grup düğümü). (Düzeltme: Frontal lobe.g aslında 3D metin etiketi (FONT tipi obje) olduğu için çıkarıldı, .j varyantı gerçek geometri.)
 
 ### Dorsolateral Prefrontal Korteks  `dorsolateral-prefrontal-korteks`
 
@@ -483,9 +489,9 @@ Toplam bölge: **106** — Doğrudan: 65 · Birleşim/Grup: 18 · Türetilebilir
 
 ### Görsel Asosiyasyon Korteksi  `gorsel-asosiyasyon-korteksi`
 
-**Z-Anatomy obje(ler)i:** `Cuneus.l`, `Cuneus.r`, `Lingual gyrus.l`, `Lingual gyrus.r`, `Lateral occipital gyrus (Middle occipital gyrus*).l`, `Lateral occipital gyrus (Middle occipital gyrus*).r`
+**Z-Anatomy obje(ler)i:** `Cuneus.l`, `Cuneus.r`, `Lingual gyrus.l`, `Lingual gyrus.r`, `Lateral occipital gyrus (Middle occipital gyrus*).l`, `Lateral occipital gyrus (Middle occipital gyrus*).r`, `Inferior occipital gyrus and sulcus*.l`, `Inferior occipital gyrus and sulcus*.r`, `Superior occipital gyri.l`, `Superior occipital gyri.r`
 
-> V2-V5 için tek bir TA karşılığı yok; oksipital lobun calcarine sulcus dışındaki gyrusları (cuneus, lingual gyrus, lateral occipital gyrus) birleşik olarak kullanılabilir.
+> V2-V5 için tek bir TA karşılığı yok; oksipital lobun calcarine sulcus dışındaki gyrusları (cuneus, lingual gyrus, lateral occipital gyrus) birleşik olarak kullanılabilir. Genişletme: ilk taramada gözden kaçan 'Inferior occipital gyrus' ve 'Superior occipital gyri' eklendi.
 
 ### Anterior İnsula  `anterior-insula`
 
