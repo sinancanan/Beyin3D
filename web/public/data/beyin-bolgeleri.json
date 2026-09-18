@@ -4,7 +4,7 @@
   "regions": [
     {
       "id": "serebrum",
-      "name_tr": "Serebrum (Büyük Beyin)",
+      "name_tr": "Üst Beyin (Serebrum)",
       "name_en": "Cerebrum",
       "parent_id": null,
       "category": "sistem",
@@ -49,7 +49,7 @@
     },
     {
       "id": "serebellum",
-      "name_tr": "Serebellum (Beyincik)",
+      "name_tr": "Beyincik (Serebellum)",
       "name_en": "Cerebellum",
       "parent_id": null,
       "category": "sistem",
@@ -148,7 +148,7 @@
     },
     {
       "id": "suplementer-motor-alan",
-      "name_tr": "Suplementer Motor Alan",
+      "name_tr": "Tamamlayıcı Motor Alan",
       "name_en": "Supplementary Motor Area",
       "parent_id": "frontal-lob",
       "category": "korteks-alani",
@@ -202,7 +202,7 @@
     },
     {
       "id": "frontal-goz-alani",
-      "name_tr": "Frontal Göz Alanı",
+      "name_tr": "Ön Göz Alanı",
       "name_en": "Frontal Eye Fields",
       "parent_id": "frontal-lob",
       "category": "korteks-alani",
@@ -964,6 +964,15 @@
       "category": "korteks-alani",
       "description_short": "Bacak ve ayağın motor ve duyusal temsilini barındıran, beynin iç (medial) yüzeyindeki lobül.",
       "description_long": "Paracentral lobül, precentral ve postcentral girusların beynin iç (medial) yüzeyine doğru devam eden, birbirine kaynaşmış halidir; iki hemisfer arasındaki boşluğa bakan bu yüzeyde yer alır. Ön kısmı bacağın istemli hareketini (primer motor korteksin bacak temsili), arka kısmı ise bacaktan gelen dokunma ve pozisyon duyusunu (primer somatosensoriyel korteksin bacak temsili) işler. Precentral ve postcentral giruslarla doğrudan devamlılık gösterir, motor ve duyusal homunkulusun 'bacak' kısmının dış yüzeydeki şeritten iç yüzeye taştığı bölgedir. Yürürken bacaklarımızı bilinçli olarak hareket ettirebilmemiz ve ayak tabanımıza basan zemini hissedebilmemiz bu lobülün katkısıyla mümkün olur."
+    },
+    {
+      "id": "broca-karsiligi-alani",
+      "name_tr": "Broca Karşılığı Alan",
+      "name_en": "Broca's Area Homolog (Right Hemisphere)",
+      "parent_id": "frontal-lob",
+      "category": "korteks-alani",
+      "description_short": "Konuşmanın duygusal tonu ile ilgili olduğu düşünülen, Broca alanının sağ hemisferdeki karşılığı.",
+      "description_long": "Broca karşılığı alan, sol hemisferdeki Broca alanının sağ hemisferdeki ayna görüntüsü konumundadır (inferior frontal girusun opercular ve triangular parçaları). Dilin gramer ve kelime üretiminden çok, konuşmanın duygusal tonlamasını (prozodi) — yani bir cümlenin sinirli, şakacı ya da üzgün söylenip söylenmediğini — üretme ve ifade etmede rol oynadığı düşünülür. Sol Broca alanı 'ne söylendiğini' şekillendirirken, bu bölge 'nasıl söylendiğini' şekillendirmeye katkıda bulunur. Sağ hemisfer hasarlarında dilbilgisi bozulmadan konuşmanın tekdüze, duygusuz bir tona bürünmesi (aprozodi) bu bölgenin işlevine işaret eder. Bir cümleyi sinirli mi yoksa sakin mi söylediğimizi, tonlamamızı ayarlayarak belli etmemiz bu bölgenin katkısıyla ilişkilidir."
     }
   ]
 }

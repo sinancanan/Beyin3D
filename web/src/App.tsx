@@ -30,6 +30,25 @@ function App() {
     return map;
   }, [regions]);
 
+  // regions with no children are "leaves" - the only ones shown by default,
+  // since a parent's mesh (when it has one) exactly covers its children's
+  // combined space and would otherwise be rendered on top of them
+  const leafIds = useMemo(() => {
+    const withChildren = new Set<string>();
+    if (regions) {
+      for (const r of regions) {
+        if (r.parent_id) withChildren.add(r.parent_id);
+      }
+    }
+    const leaves = new Set<string>();
+    if (regions) {
+      for (const r of regions) {
+        if (!withChildren.has(r.id)) leaves.add(r.id);
+      }
+    }
+    return leaves;
+  }, [regions]);
+
   const hoveredRegion = hoveredId ? regionsById.get(hoveredId) ?? null : null;
   const selectedRegion = selectedId ? regionsById.get(selectedId) ?? null : null;
 
@@ -83,7 +102,7 @@ function App() {
           </div>
         )}
 
-        <Canvas camera={{ position: [0.4, 0.15, 0.4], fov: 40 }}>
+        <Canvas camera={{ position: [0.55, 0.22, 0.55], fov: 40 }}>
           <color attach="background" args={["#f4f5f7"]} />
           <ambientLight intensity={0.6} />
           <directionalLight position={[1, 1.2, 0.8]} intensity={1.4} />
@@ -97,6 +116,7 @@ function App() {
           >
             <BrainModel
               regionsById={regionsById}
+              leafIds={leafIds}
               hoveredId={hoveredId}
               selectedId={selectedId}
               isolate={isolate}

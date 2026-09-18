@@ -22,6 +22,15 @@ export const CATEGORY_LABELS: Record<string, string> = {
   "kraniyal-sinir": "Kraniyal Sinir",
 };
 
-export function colorFor(category: string): string {
+// per-region color overrides for structures that need to visually stand out
+// from the rest of their category (e.g. choroid plexus inside the ventricles)
+export const REGION_COLOR_OVERRIDES: Record<string, string> = {
+  "koroid-pleksus": "#d1373f",
+};
+
+export function colorFor(category: string, regionId?: string): string {
+  if (regionId && REGION_COLOR_OVERRIDES[regionId]) {
+    return REGION_COLOR_OVERRIDES[regionId];
+  }
   return CATEGORY_COLORS[category] ?? "#c9a98c";
 }

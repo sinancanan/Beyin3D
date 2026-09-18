@@ -1,24 +1,24 @@
 # Beyin Bölgeleri — İnceleme Dökümanı
 
-Toplam kayıt: **107**  
+Toplam kayıt: **108**  
 Kaynak dosya: `data/beyin-bolgeleri.json`
 
 ---
 
 ## İçindekiler
 
-- [Serebrum (Büyük Beyin)](#serebrum)
+- [Üst Beyin (Serebrum)](#serebrum)
 - [Bazal Ganglionlar](#bazal-ganglionlar)
 - [Limbik Sistem](#limbik-sistem)
 - [Diensefalon (Ara Beyin)](#diensefalon)
 - [Beyin Sapı](#beyin-sapi)
-- [Serebellum (Beyincik)](#serebellum)
+- [Beyincik (Serebellum)](#serebellum)
 - [Beyaz Cevher Yolları](#beyaz-cevher-yollari)
 - [Ventriküler Sistem](#ventrikuler-sistem)
 
 ---
 
-## <a id="serebrum"></a>Serebrum (Büyük Beyin)
+## <a id="serebrum"></a>Üst Beyin (Serebrum)
 
 *Cerebrum* &nbsp;·&nbsp; `Sistem` &nbsp;·&nbsp; id: `serebrum`
 
@@ -50,7 +50,7 @@ Primer motor korteks, frontal lobun en arkasında, parietal lobla sınır oluşt
 
 Premotor korteks, primer motor korteksin hemen önünde yer alır ve bir hareketin hangi sırayla, hangi kaslarla ve dış uyaranlara göre nasıl yapılacağının planlanmasında görev alır. Görsel ve duyusal bilgileri parietal loptan alarak bunları hareket programlarına dönüştürür, sonucu primer motor kortekse iletir. Özellikle görsel bir hedefe göre hareket düzenlemede (ör. bir bardağı tutmak için eli doğru açıyla uzatmak) belirleyicidir. Spor yaparken, araç kullanırken ya da sadece bir merdivenden inerken bedenin çevreye uyumlu, akıcı hareket etmesini sağlayan bu ön-planlama sürecidir.
 
-#### <a id="suplementer-motor-alan"></a>Suplementer Motor Alan
+#### <a id="suplementer-motor-alan"></a>Tamamlayıcı Motor Alan
 
 *Supplementary Motor Area* &nbsp;·&nbsp; `Korteks Alanı` &nbsp;·&nbsp; id: `suplementer-motor-alan`
 
@@ -98,7 +98,7 @@ Orbitofrontal korteks, prefrontal korteksin en alt kısmında, göz yuvalarını
 
 Broca alanı, çoğu insanda sol frontal lobda, alt frontal girusun arka kısmında yer alır ve konuşulan dilin üretilmesinde, yani düşünceyi gramer kurallarına uygun, akıcı cümlelere dönüştürmede kilit rol oynar. Wernicke alanıyla arkuat fasikül adlı bir sinir demeti aracılığıyla bağlantılıdır; bu iki bölge birlikte dilin anlaşılması ve üretilmesi döngüsünü tamamlar. Bu alanın hasar görmesi, kişinin ne söylemek istediğini bilmesine rağmen kelimeleri akıcı ve gramatik biçimde bir araya getirmekte zorlanmasına (Broca afazisi) yol açar. Bir cümleyi kurarken kelimeleri doğru sırayla ve akıcı biçimde dile getirebilmemiz bu alanın sessiz ama sürekli çalışmasının ürünüdür.
 
-#### <a id="frontal-goz-alani"></a>Frontal Göz Alanı
+#### <a id="frontal-goz-alani"></a>Ön Göz Alanı
 
 *Frontal Eye Fields* &nbsp;·&nbsp; `Korteks Alanı` &nbsp;·&nbsp; id: `frontal-goz-alani`
 
@@ -113,6 +113,14 @@ Frontal göz alanı, frontal lobun üst-yan (dorsolateral) kesiminde, primer mot
 **Kısa tanım:** Bacak ve ayağın motor ve duyusal temsilini barındıran, beynin iç (medial) yüzeyindeki lobül.
 
 Paracentral lobül, precentral ve postcentral girusların beynin iç (medial) yüzeyine doğru devam eden, birbirine kaynaşmış halidir; iki hemisfer arasındaki boşluğa bakan bu yüzeyde yer alır. Ön kısmı bacağın istemli hareketini (primer motor korteksin bacak temsili), arka kısmı ise bacaktan gelen dokunma ve pozisyon duyusunu (primer somatosensoriyel korteksin bacak temsili) işler. Precentral ve postcentral giruslarla doğrudan devamlılık gösterir, motor ve duyusal homunkulusun 'bacak' kısmının dış yüzeydeki şeritten iç yüzeye taştığı bölgedir. Yürürken bacaklarımızı bilinçli olarak hareket ettirebilmemiz ve ayak tabanımıza basan zemini hissedebilmemiz bu lobülün katkısıyla mümkün olur.
+
+#### <a id="broca-karsiligi-alani"></a>Broca Karşılığı Alan
+
+*Broca's Area Homolog (Right Hemisphere)* &nbsp;·&nbsp; `Korteks Alanı` &nbsp;·&nbsp; id: `broca-karsiligi-alani`
+
+**Kısa tanım:** Konuşmanın duygusal tonu ile ilgili olduğu düşünülen, Broca alanının sağ hemisferdeki karşılığı.
+
+Broca karşılığı alan, sol hemisferdeki Broca alanının sağ hemisferdeki ayna görüntüsü konumundadır (inferior frontal girusun opercular ve triangular parçaları). Dilin gramer ve kelime üretiminden çok, konuşmanın duygusal tonlamasını (prozodi) — yani bir cümlenin sinirli, şakacı ya da üzgün söylenip söylenmediğini — üretme ve ifade etmede rol oynadığı düşünülür. Sol Broca alanı 'ne söylendiğini' şekillendirirken, bu bölge 'nasıl söylendiğini' şekillendirmeye katkıda bulunur. Sağ hemisfer hasarlarında dilbilgisi bozulmadan konuşmanın tekdüze, duygusuz bir tona bürünmesi (aprozodi) bu bölgenin işlevine işaret eder. Bir cümleyi sinirli mi yoksa sakin mi söylediğimizi, tonlamamızı ayarlayarak belli etmemiz bu bölgenin katkısıyla ilişkilidir.
 
 ### <a id="parietal-lob"></a>Parietal Lob
 
@@ -764,7 +772,7 @@ Hipoglossal çekirdek, medullanın arka-orta kesiminde, dördüncü ventrikülü
 
 ---
 
-## <a id="serebellum"></a>Serebellum (Beyincik)
+## <a id="serebellum"></a>Beyincik (Serebellum)
 
 *Cerebellum* &nbsp;·&nbsp; `Sistem` &nbsp;·&nbsp; id: `serebellum`
 

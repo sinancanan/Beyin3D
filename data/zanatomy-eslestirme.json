@@ -10,11 +10,11 @@
     "note": "Nesne adlari cogunlukla .l/.r (sol/sag) ekiyle ikili geliyor; bazilari .g/.j gibi ek harflerle de cogaltilmis - bu eklerin tam anlami (muhtemelen sistem/katman gruplamasi) Blender'da dosya acilip dogrulanmali."
   },
   "stats": {
-    "toplam_bolge": 107,
-    "direct": 67,
+    "toplam_bolge": 108,
+    "direct": 70,
     "composite": 18,
-    "derived": 11,
-    "missing": 11
+    "derived": 8,
+    "missing": 12
   },
   "mappings": [
     {
@@ -93,11 +93,9 @@
       "match_type": "composite",
       "zanatomy_objects": [
         "Opercular part of inferior frontal gyrus.l",
-        "Opercular part of inferior frontal gyrus.r",
-        "Triangular part of inferior frontal gyrus.l",
-        "Triangular part of inferior frontal gyrus.r"
+        "Triangular part of inferior frontal gyrus.l"
       ],
-      "note": "Klasik Broca alanı, inferior frontal girusun bu iki alt parçasının (pars opercularis + pars triangularis) birleşimine karşılık gelir; genelde sol hemisferdeki kopyalar kullanılır."
+      "note": "Klasik Broca alanı yalnızca sol (dil-baskın) hemisferde tanımlanır; sağ taraf artık ayrı 'broca-karsiligi-alani' kaydına ait."
     },
     {
       "region_id": "frontal-goz-alani",
@@ -173,12 +171,11 @@
     },
     {
       "region_id": "wernicke-alani",
-      "match_type": "derived",
+      "match_type": "direct",
       "zanatomy_objects": [
-        "Superior temporal gyrus (Lateral part).l",
-        "Superior temporal gyrus (Lateral part).r"
+        "Superior temporal gyrus (Lateral part).l"
       ],
-      "note": "Fonksiyonel alan; superior temporal girusun arka kısmı olarak, mevcut mesh üzerinde alt-bölge şeklinde işaretlenebilir (genelde sol hemisfer)."
+      "note": "Wernicke alanı fonksiyonel/tarihsel bir bölge olup TA'da kendine özgü bir mesh'i yok; en yakın gerçek karşılığı sol superior temporal girusun arka kısmıdır. Bu mesh, 'superior-temporal-girus' kaydının sol tarafıyla aynı geometriyi paylaşır (temporoparietal kavşağa doğru daha kesin bir ayrım, atlasta bulunmayan elle-kesilmiş bir alt-bölge gerektirir)."
     },
     {
       "region_id": "superior-temporal-girus",
@@ -265,19 +262,15 @@
     },
     {
       "region_id": "anterior-insula",
-      "match_type": "derived",
-      "zanatomy_objects": [
-        "Insula.j"
-      ],
-      "note": "Ayrı mesh yok; tek parça Insula mesh'inin ön yarısı olarak Blender'da elle bölünmesi gerekir. (Düzeltme: Insula.g aslında 3D metin etiketi (FONT tipi obje) olduğu için çıkarıldı, .j varyantı gerçek geometri.)"
+      "match_type": "missing",
+      "zanatomy_objects": [],
+      "note": "Atlasta insula için gerçek bir yüzey mesh'i yok ('Insula.j' de diğer boş 'bütün organ' objeleri gibi 2 vertex'lik yer tutucu çıktı); ön/arka ayrımı ancak elle 3D modelleme ile eklenebilir. Şimdilik hem insula hem bu alt bölgeleri 3D'de görünmüyor."
     },
     {
       "region_id": "posterior-insula",
-      "match_type": "derived",
-      "zanatomy_objects": [
-        "Insula.j"
-      ],
-      "note": "Ayrı mesh yok; tek parça Insula mesh'inin arka yarısı olarak Blender'da elle bölünmesi gerekir. (Düzeltme: Insula.g aslında 3D metin etiketi (FONT tipi obje) olduğu için çıkarıldı, .j varyantı gerçek geometri.)"
+      "match_type": "missing",
+      "zanatomy_objects": [],
+      "note": "Atlasta insula için gerçek bir yüzey mesh'i yok ('Insula.j' de diğer boş 'bütün organ' objeleri gibi 2 vertex'lik yer tutucu çıktı); ön/arka ayrımı ancak elle 3D modelleme ile eklenebilir. Şimdilik hem insula hem bu alt bölgeleri 3D'de görünmüyor."
     },
     {
       "region_id": "limbik-lob",
@@ -517,11 +510,10 @@
       "region_id": "orta-beyin",
       "match_type": "direct",
       "zanatomy_objects": [
-        "Midbrain.j",
         "Midbrain.l",
         "Midbrain.r"
       ],
-      "note": "Hem genel (.g/.j) hem sol/sağ (.l/.r) varyantları var; Blender'da hangisinin görünür/kullanılacak geometri olduğu kontrol edilmeli. (Düzeltme: Midbrain.g aslında 3D metin etiketi (FONT tipi obje) olduğu için çıkarıldı, .j varyantı gerçek geometri.)"
+      "note": "Hem genel (.g/.j) hem sol/sağ (.l/.r) varyantları var; Blender'da hangisinin görünür/kullanılacak geometri olduğu kontrol edilmeli. (Düzeltme: Midbrain.g aslında 3D metin etiketi (FONT tipi obje) olduğu için çıkarıldı, .j varyantı gerçek geometri.) Temizlik: 'Midbrain.j' boş yer tutucu olduğu için listeden çıkarıldı, .l/.r yeterli."
     },
     {
       "region_id": "pons",
@@ -543,11 +535,9 @@
     },
     {
       "region_id": "kraniyal-sinirler",
-      "match_type": "direct",
-      "zanatomy_objects": [
-        "Cranial nerves.j"
-      ],
-      "note": "Bu muhtemelen 12 sinirin tamamını içeren bir üst grup/koleksiyon; her sinir ayrıca kendi mesh'ine de sahip. (Düzeltme: Cranial nerves.g aslında 3D metin etiketi (FONT tipi obje) olduğu için çıkarıldı, .j varyantı gerçek geometri.)"
+      "match_type": "composite",
+      "zanatomy_objects": [],
+      "note": "'Cranial nerves.j' de diğer 'bütün grup' objeleri gibi boş (2 vertex) yer tutucu çıktı; kendi mesh'i yok, alt bölgelerin (12 sinir + çekirdekleri) birleşiminden otomatik olarak türetiliyor."
     },
     {
       "region_id": "n-olfaktorius",
@@ -751,12 +741,9 @@
     },
     {
       "region_id": "traktus-solitarius-cekirdegi",
-      "match_type": "direct",
-      "zanatomy_objects": [
-        "Nucleus of solitary tract.l",
-        "Nucleus of solitary tract.r"
-      ],
-      "note": null
+      "match_type": "missing",
+      "zanatomy_objects": [],
+      "note": "Atlasta bu isimle bir obje var ama gerçekte 5 vertex'lik, yüzeysiz (0 poligon) bir iskelet çizgisi; katı bir yapı olarak render edilemiyor. Şematik nokta işaretleyici gerekecek."
     },
     {
       "region_id": "n-aksesorius",
@@ -814,19 +801,35 @@
     },
     {
       "region_id": "sol-serebellar-hemisfer",
-      "match_type": "missing",
+      "match_type": "direct",
       "zanatomy_objects": [
-        "Cerebellum.j"
+        "Anterior quadrangular lobule.l",
+        "Posterior quadrangular lobule.l",
+        "Biventral lobule.l",
+        "Gracile lobule.l",
+        "Superior semilunar lobule.l",
+        "Inferior semilunar lobule.l",
+        "Tonsil of cerebellum.l",
+        "Flocculus.l",
+        "Peduncle of flocculus.l"
       ],
-      "note": "Atlasta ayrı sol/sağ hemisfer mesh'i yok, tek parça Cerebellum mesh'i var; sol yarı için bu mesh'in orta hattan Blender'da elle bölünmesi gerekir. (Düzeltme: Cerebellum.g aslında 3D metin etiketi (FONT tipi obje) olduğu için çıkarıldı, .j varyantı gerçek geometri.)"
+      "note": "İlk taramada gözden kaçmıştı: atlasta serebellar hemisferin gerçek lobülleri (quadrangular, biventral, gracile, semilunar lobüller, tonsil, flokkulus) ayrı mesh olarak mevcut."
     },
     {
       "region_id": "sag-serebellar-hemisfer",
-      "match_type": "missing",
+      "match_type": "direct",
       "zanatomy_objects": [
-        "Cerebellum.j"
+        "Anterior quadrangular lobule.r",
+        "Posterior quadrangular lobule.r",
+        "Biventral lobule.r",
+        "Gracile lobule.r",
+        "Superior semilunar lobule.r",
+        "Inferior semilunar lobule.r",
+        "Tonsil of cerebellum.r",
+        "Flocculus.r",
+        "Peduncle of flocculus.r"
       ],
-      "note": "Aynı şekilde, sağ yarı için elle bölme gerekir. (Düzeltme: Cerebellum.g aslında 3D metin etiketi (FONT tipi obje) olduğu için çıkarıldı, .j varyantı gerçek geometri.)"
+      "note": "Sol hemisferin aynısı, sağ taraf lobülleri kullanılarak."
     },
     {
       "region_id": "derin-serebellar-cekirdekler",
@@ -870,9 +873,15 @@
     },
     {
       "region_id": "ventrikuler-sistem",
-      "match_type": "composite",
-      "zanatomy_objects": [],
-      "note": "Lateral ventriküller + 3./4. ventrikül + koroid pleksusun kavramsal grubu; kendi mesh'i yok."
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Lateral ventricle.l",
+        "Lateral ventricle.r",
+        "Third ventricle",
+        "Fourth ventricle",
+        "Central canal"
+      ],
+      "note": "Üst-grup düğümüne artık kendi mesh'i verildi: lateral ventriküller + 3./4. ventrikül + santral kanalın birleşimi, tek parça olarak görünür. Koroid pleksus bilinçli olarak dışarıda bırakıldı; ayrı ve farklı (kırmızı) renkte gösterilecek."
     },
     {
       "region_id": "lateral-ventrikuller",
@@ -916,6 +925,15 @@
         "Paracentral gyrus and sulcus*.r"
       ],
       "note": "TA'da 'Paracentral gyrus and sulcus' olarak geçen, precentral/postcentral girusun medial yüzeydeki devamı."
+    },
+    {
+      "region_id": "broca-karsiligi-alani",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Opercular part of inferior frontal gyrus.r",
+        "Triangular part of inferior frontal gyrus.r"
+      ],
+      "note": "Broca alanının sağ hemisferdeki ayna karşılığı; konuşmanın prozodik/duygusal tonuyla ilişkilendirilir."
     }
   ]
 }
