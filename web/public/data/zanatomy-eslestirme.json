@@ -1,0 +1,939 @@
+{
+  "$schema_note": "beyin-bolgeleri.json'daki her id icin Z-Anatomy (BodyParts3D kokenli) 3D modelindeki karsilik gelen obje adlarinin eslestirmesi. match_type: direct (gercek mesh var), composite (alt-parcalarin birlesimi / kendi mesh'i olmayan ust grup), derived (komsu yapidan konumlandirilabilir ya da tek mesh'in bolunmesiyle elde edilir), missing (bu atlasta hicbir karsiligi yok, sematik nokta/placeholder gerekiyor).",
+  "version": "0.1",
+  "source": {
+    "name": "Z-Anatomy (Models-of-human-anatomy)",
+    "url": "https://github.com/Z-Anatomy/Models-of-human-anatomy",
+    "base_dataset": "BodyParts3D (DBCLS, Japan)",
+    "license": "CC BY-SA 4.0 (temel BodyParts3D icerigi: CC BY-SA 2.1 Japan) — atif + ayni lisansla paylasma sartiyla ticari kullanima acik",
+    "inspected_file": "Z-Anatomy/Startup.blend (Blender v3.5, indirilen zip ~82.7MB, acilmis blend ~307MB)",
+    "note": "Nesne adlari cogunlukla .l/.r (sol/sag) ekiyle ikili geliyor; bazilari .g/.j gibi ek harflerle de cogaltilmis - bu eklerin tam anlami (muhtemelen sistem/katman gruplamasi) Blender'da dosya acilip dogrulanmali."
+  },
+  "stats": {
+    "toplam_bolge": 108,
+    "direct": 70,
+    "composite": 18,
+    "derived": 8,
+    "missing": 12
+  },
+  "mappings": [
+    {
+      "region_id": "serebrum",
+      "match_type": "composite",
+      "zanatomy_objects": [],
+      "note": "Atlasta bu 'bütün organ/lob' objesi (.j uzantılı) 2 vertex'lik boş bir yer tutucu (muhtemelen sadece organizasyonel/etiket amaçlı); gerçek görsel yüzey, bu düğümün altındaki alt-bölgelerin (gyruslar/alt-yapılar) birleşiminden oluşuyor. Bu yüzden kendi mesh'i yok, JSON'da sadece üst-grup etiketi."
+    },
+    {
+      "region_id": "frontal-lob",
+      "match_type": "composite",
+      "zanatomy_objects": [],
+      "note": "Atlasta bu 'bütün organ/lob' objesi (.j uzantılı) 2 vertex'lik boş bir yer tutucu (muhtemelen sadece organizasyonel/etiket amaçlı); gerçek görsel yüzey, bu düğümün altındaki alt-bölgelerin (gyruslar/alt-yapılar) birleşiminden oluşuyor. Bu yüzden kendi mesh'i yok, JSON'da sadece üst-grup etiketi."
+    },
+    {
+      "region_id": "primer-motor-korteks",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Precentral gyrus.l",
+        "Precentral gyrus.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "premotor-korteks",
+      "match_type": "derived",
+      "zanatomy_objects": [],
+      "note": "TA'da ayrı bir mesh yok; precentral gyrusun hemen önündeki frontal lob korteks şeridi olarak, Frontal lobe mesh'i üzerinde şematik bir alt-bölge olarak işaretlenebilir."
+    },
+    {
+      "region_id": "suplementer-motor-alan",
+      "match_type": "derived",
+      "zanatomy_objects": [],
+      "note": "Ayrı mesh yok; frontal lobun iç (medial) yüzeyinde, precentral gyrusun hemen önünde şematik alt-bölge olarak işaretlenebilir."
+    },
+    {
+      "region_id": "prefrontal-korteks",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Superior frontal gyrus.l",
+        "Superior frontal gyrus.r",
+        "Middle frontal gyrus.l",
+        "Middle frontal gyrus.r",
+        "Transverse frontopolar gyrus and sulcus*.l",
+        "Transverse frontopolar gyrus and sulcus*.r"
+      ],
+      "note": "İlk taramada gözden kaçmıştı: atlasta 'Superior frontal gyrus' ve 'Middle frontal gyrus' gerçek, ayrı mesh olarak mevcut ve prefrontal korteksin görünür yüzeyinin büyük kısmını oluşturuyor. Frontal kutup için 'Transverse frontopolar gyrus and sulcus' eklendi."
+    },
+    {
+      "region_id": "dorsolateral-prefrontal-korteks",
+      "match_type": "derived",
+      "zanatomy_objects": [],
+      "note": "Fonksiyonel bir bölge, TA'da karşılığı yok; Frontal lobe mesh'i üzerinde üst-yan bölgede şematik alt-alan olarak işaretlenebilir."
+    },
+    {
+      "region_id": "ventromedial-prefrontal-korteks",
+      "match_type": "derived",
+      "zanatomy_objects": [],
+      "note": "Fonksiyonel bölge; Frontal lobe mesh'i üzerinde alt-iç bölgede, Orbital gyri'ye yakın şematik alt-alan olarak işaretlenebilir."
+    },
+    {
+      "region_id": "orbitofrontal-korteks",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Orbital gyri.l",
+        "Orbital gyri.r",
+        "Orbital part of  inferior frontal gyrus.l",
+        "Orbital part of  inferior frontal gyrus.r",
+        "Straight gyrus (Gyrus rectus).l",
+        "Straight gyrus (Gyrus rectus).r"
+      ],
+      "note": "TA karşılığı 'Orbital gyri' — tam örtüşmüyor ama en yakın anatomik eşdeğer. Genişletme: inferior frontal girusun orbital parçası ve gyrus rectus (straight gyrus) da orbital yüzeyin parçası olarak eklendi."
+    },
+    {
+      "region_id": "broca-alani",
+      "match_type": "composite",
+      "zanatomy_objects": [
+        "Opercular part of inferior frontal gyrus.l",
+        "Triangular part of inferior frontal gyrus.l"
+      ],
+      "note": "Klasik Broca alanı yalnızca sol (dil-baskın) hemisferde tanımlanır; sağ taraf artık ayrı 'broca-karsiligi-alani' kaydına ait."
+    },
+    {
+      "region_id": "frontal-goz-alani",
+      "match_type": "derived",
+      "zanatomy_objects": [],
+      "note": "Fonksiyonel alan, TA'da yok; middle frontal gyrus/precentral gyrus sınırında şematik nokta olarak işaretlenebilir."
+    },
+    {
+      "region_id": "parietal-lob",
+      "match_type": "composite",
+      "zanatomy_objects": [],
+      "note": "Atlasta bu 'bütün organ/lob' objesi (.j uzantılı) 2 vertex'lik boş bir yer tutucu (muhtemelen sadece organizasyonel/etiket amaçlı); gerçek görsel yüzey, bu düğümün altındaki alt-bölgelerin (gyruslar/alt-yapılar) birleşiminden oluşuyor. Bu yüzden kendi mesh'i yok, JSON'da sadece üst-grup etiketi."
+    },
+    {
+      "region_id": "primer-somatosensoriyel-korteks",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Postcentral gyrus.l",
+        "Postcentral gyrus.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "posterior-parietal-korteks",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Superior parietal lobule.l",
+        "Superior parietal lobule.r"
+      ],
+      "note": "Tam eşanlamlı değil ama en yakın TA karşılığı superior parietal lobule."
+    },
+    {
+      "region_id": "precuneus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Precuneus.l",
+        "Precuneus.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "angular-girus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Angular gyrus.l",
+        "Angular gyrus.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "supramarginal-girus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Supramarginal gyrus.l",
+        "Supramarginal gyrus.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "temporal-lob",
+      "match_type": "composite",
+      "zanatomy_objects": [],
+      "note": "Atlasta bu 'bütün organ/lob' objesi (.j uzantılı) 2 vertex'lik boş bir yer tutucu (muhtemelen sadece organizasyonel/etiket amaçlı); gerçek görsel yüzey, bu düğümün altındaki alt-bölgelerin (gyruslar/alt-yapılar) birleşiminden oluşuyor. Bu yüzden kendi mesh'i yok, JSON'da sadece üst-grup etiketi."
+    },
+    {
+      "region_id": "primer-isitsel-korteks",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Transverse temporal gyri.l",
+        "Transverse temporal gyri.r"
+      ],
+      "note": "TA adı 'Transverse temporal gyri' (Heschl girusu)."
+    },
+    {
+      "region_id": "wernicke-alani",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Superior temporal gyrus (Lateral part).l"
+      ],
+      "note": "Wernicke alanı fonksiyonel/tarihsel bir bölge olup TA'da kendine özgü bir mesh'i yok; en yakın gerçek karşılığı sol superior temporal girusun arka kısmıdır. Bu mesh, 'superior-temporal-girus' kaydının sol tarafıyla aynı geometriyi paylaşır (temporoparietal kavşağa doğru daha kesin bir ayrım, atlasta bulunmayan elle-kesilmiş bir alt-bölge gerektirir)."
+    },
+    {
+      "region_id": "superior-temporal-girus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Superior temporal gyrus (Lateral part).l",
+        "Superior temporal gyrus (Lateral part).r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "orta-temporal-girus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Middle temporal gyrus.l",
+        "Middle temporal gyrus.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "inferior-temporal-girus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Inferior temporal gyrus.l",
+        "Inferior temporal gyrus.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "fusiform-girus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Lateral occipitotemporal gyrus.l",
+        "Lateral occipitotemporal gyrus.r"
+      ],
+      "note": "TA adı 'Lateral occipitotemporal gyrus' = fusiform girus."
+    },
+    {
+      "region_id": "temporal-kutup",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Temporal pole.l",
+        "Temporal pole.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "oksipital-lob",
+      "match_type": "composite",
+      "zanatomy_objects": [],
+      "note": "Atlasta bu 'bütün organ/lob' objesi (.j uzantılı) 2 vertex'lik boş bir yer tutucu (muhtemelen sadece organizasyonel/etiket amaçlı); gerçek görsel yüzey, bu düğümün altındaki alt-bölgelerin (gyruslar/alt-yapılar) birleşiminden oluşuyor. Bu yüzden kendi mesh'i yok, JSON'da sadece üst-grup etiketi."
+    },
+    {
+      "region_id": "primer-gorsel-korteks",
+      "match_type": "derived",
+      "zanatomy_objects": [
+        "Calcarine sulcus.l",
+        "Calcarine sulcus.r"
+      ],
+      "note": "V1 için ayrı mesh yok; calcarine sulcus çevresi anatomik referans noktasıdır, occipital lobe mesh'i üzerinde bu sulkusu çevreleyen alan olarak işaretlenebilir."
+    },
+    {
+      "region_id": "gorsel-asosiyasyon-korteksi",
+      "match_type": "derived",
+      "zanatomy_objects": [
+        "Cuneus.l",
+        "Cuneus.r",
+        "Lingual gyrus.l",
+        "Lingual gyrus.r",
+        "Lateral occipital gyrus (Middle occipital gyrus*).l",
+        "Lateral occipital gyrus (Middle occipital gyrus*).r",
+        "Inferior occipital gyrus and sulcus*.l",
+        "Inferior occipital gyrus and sulcus*.r",
+        "Superior occipital gyri.l",
+        "Superior occipital gyri.r"
+      ],
+      "note": "V2-V5 için tek bir TA karşılığı yok; oksipital lobun calcarine sulcus dışındaki gyrusları (cuneus, lingual gyrus, lateral occipital gyrus) birleşik olarak kullanılabilir. Genişletme: ilk taramada gözden kaçan 'Inferior occipital gyrus' ve 'Superior occipital gyri' eklendi."
+    },
+    {
+      "region_id": "insula",
+      "match_type": "composite",
+      "zanatomy_objects": [],
+      "note": "Atlasta bu 'bütün organ/lob' objesi (.j uzantılı) 2 vertex'lik boş bir yer tutucu (muhtemelen sadece organizasyonel/etiket amaçlı); gerçek görsel yüzey, bu düğümün altındaki alt-bölgelerin (gyruslar/alt-yapılar) birleşiminden oluşuyor. Bu yüzden kendi mesh'i yok, JSON'da sadece üst-grup etiketi."
+    },
+    {
+      "region_id": "anterior-insula",
+      "match_type": "missing",
+      "zanatomy_objects": [],
+      "note": "Atlasta insula için gerçek bir yüzey mesh'i yok ('Insula.j' de diğer boş 'bütün organ' objeleri gibi 2 vertex'lik yer tutucu çıktı); ön/arka ayrımı ancak elle 3D modelleme ile eklenebilir. Şimdilik hem insula hem bu alt bölgeleri 3D'de görünmüyor."
+    },
+    {
+      "region_id": "posterior-insula",
+      "match_type": "missing",
+      "zanatomy_objects": [],
+      "note": "Atlasta insula için gerçek bir yüzey mesh'i yok ('Insula.j' de diğer boş 'bütün organ' objeleri gibi 2 vertex'lik yer tutucu çıktı); ön/arka ayrımı ancak elle 3D modelleme ile eklenebilir. Şimdilik hem insula hem bu alt bölgeleri 3D'de görünmüyor."
+    },
+    {
+      "region_id": "limbik-lob",
+      "match_type": "composite",
+      "zanatomy_objects": [],
+      "note": "TA'da tek bir mesh yok; singulat korteks + parahipokampal girus + retrosplenyal korteks alt-yapılarının kavramsal grubu, üst düğüm (parent) olarak kullanılacak, kendi mesh'i yok."
+    },
+    {
+      "region_id": "singulat-korteks",
+      "match_type": "composite",
+      "zanatomy_objects": [
+        "Cingulate gyrus (Posteroventral part*).l",
+        "Cingulate gyrus (Posteroventral part*).r",
+        "Cingulate gyrus and sulcus (Middle anterior part).l",
+        "Cingulate gyrus and sulcus (Middle anterior part).r",
+        "Cingulate gyrus and sulcus (Middle posterior part).l",
+        "Cingulate gyrus and sulcus (Middle posterior part).r",
+        "Cingulate gyrus and sulcus (Posterior dorsal part).l",
+        "Cingulate gyrus and sulcus (Posterior dorsal part).r"
+      ],
+      "note": "TA'da singulat korteks 4 ayrı alt-parçaya bölünmüş halde geliyor; üst düğüm bunların tümünün birleşimidir."
+    },
+    {
+      "region_id": "anterior-singulat-korteks",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Cingulate gyrus and sulcus (Middle anterior part).l",
+        "Cingulate gyrus and sulcus (Middle anterior part).r"
+      ],
+      "note": "En yakın TA karşılığı 'Middle anterior part'; tam anatomik sınırlar bizim tanımımızla birebir örtüşmeyebilir."
+    },
+    {
+      "region_id": "posterior-singulat-korteks",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Cingulate gyrus and sulcus (Middle posterior part).l",
+        "Cingulate gyrus and sulcus (Middle posterior part).r",
+        "Cingulate gyrus and sulcus (Posterior dorsal part).l",
+        "Cingulate gyrus and sulcus (Posterior dorsal part).r"
+      ],
+      "note": "İki TA alt-parçasının birleşimine karşılık gelir."
+    },
+    {
+      "region_id": "parahipokampal-girus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Medial occipitotemporal gyrus (Parahippocampal*).l",
+        "Medial occipitotemporal gyrus (Parahippocampal*).r"
+      ],
+      "note": "TA adı 'Medial occipitotemporal gyrus'; yıldızlı not parahippocampal karşılığını doğruluyor."
+    },
+    {
+      "region_id": "retrosplenyal-korteks",
+      "match_type": "missing",
+      "zanatomy_objects": [],
+      "note": "Bu atlasta ayrı bir karşılığı yok; corpus callosumun splenium'una yakın, singulat korteksin en arka ucunda şematik nokta olarak işaretlenmesi gerekecek."
+    },
+    {
+      "region_id": "bazal-ganglionlar",
+      "match_type": "composite",
+      "zanatomy_objects": [],
+      "note": "Kaudat çekirdek + putamen + globus pallidus + substantia nigra + subtalamik çekirdek + nucleus accumbensin kavramsal grubu; kendi mesh'i yok."
+    },
+    {
+      "region_id": "kaudat-cekirdek",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Caudate nucleus.l",
+        "Caudate nucleus.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "putamen",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Putamen.l",
+        "Putamen.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "globus-pallidus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Globus pallidus.l",
+        "Globus pallidus.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "globus-pallidus-eksternus",
+      "match_type": "missing",
+      "zanatomy_objects": [
+        "Globus pallidus.l",
+        "Globus pallidus.r"
+      ],
+      "note": "Atlasta eksternus/internus ayrımı yok, tek parça geliyor; ayrı gösterilecekse Globus pallidus mesh'inin elle iki alt-bölgeye ayrılması gerekir."
+    },
+    {
+      "region_id": "globus-pallidus-internus",
+      "match_type": "missing",
+      "zanatomy_objects": [
+        "Globus pallidus.l",
+        "Globus pallidus.r"
+      ],
+      "note": "Aynı şekilde, tek parça mesh'in elle bölünmesi gerekir."
+    },
+    {
+      "region_id": "nucleus-accumbens",
+      "match_type": "missing",
+      "zanatomy_objects": [],
+      "note": "Atlasta hiç yok; kaudat başı ile putamenin birleştiği ventral striatum bölgesinde şematik nokta olarak işaretlenmesi gerekecek."
+    },
+    {
+      "region_id": "substantia-nigra",
+      "match_type": "missing",
+      "zanatomy_objects": [],
+      "note": "Atlasta hiç yok; orta beyin (midbrain) mesh'i içinde, anatomik literatüre göre şematik nokta olarak işaretlenmesi gerekecek."
+    },
+    {
+      "region_id": "subtalamik-cekirdek",
+      "match_type": "missing",
+      "zanatomy_objects": [],
+      "note": "Atlasta hiç yok; talamusun hemen altında, diensefalon/orta beyin sınırında şematik nokta olarak işaretlenmesi gerekecek."
+    },
+    {
+      "region_id": "limbik-sistem",
+      "match_type": "composite",
+      "zanatomy_objects": [],
+      "note": "Hipokampus + amigdala + fornix + mamiller cisimler + septal çekirdeklerin kavramsal grubu; kendi mesh'i yok."
+    },
+    {
+      "region_id": "hipokampus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Hippocampus.l",
+        "Hippocampus.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "amigdala",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Amygdaloid body.l",
+        "Amygdaloid body.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "fornix",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Fornix.l",
+        "Fornix.r"
+      ],
+      "note": "Dikkat: aynı isimde 'Fornix of stomach.t' adlı ilgisiz bir obje de var (mide kısmı), karıştırılmamalı."
+    },
+    {
+      "region_id": "mamiller-cisimler",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Mamillary body.l",
+        "Mamillary body.r"
+      ],
+      "note": "Atlasta 'Mamillary' (tek m) yazımıyla geçiyor."
+    },
+    {
+      "region_id": "septal-cekirdekler",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Septal nuclei"
+      ],
+      "note": "Sol/sağ ayrımı yok, tek obje olarak geliyor."
+    },
+    {
+      "region_id": "diensefalon",
+      "match_type": "composite",
+      "zanatomy_objects": [],
+      "note": "Talamus + hipotalamus + epitalamus + hipofiz bezinin kavramsal grubu; kendi mesh'i yok."
+    },
+    {
+      "region_id": "talamus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Thalamus.l",
+        "Thalamus.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "hipotalamus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Hypothalamus"
+      ],
+      "note": "Sol/sağ ayrımı yok, tek obje."
+    },
+    {
+      "region_id": "epitalamus",
+      "match_type": "derived",
+      "zanatomy_objects": [
+        "Pineal gland"
+      ],
+      "note": "Epitalamusun kendisi ayrı mesh değil; ana bileşeni olan Pineal gland doğrudan mevcut, epitalamus düğümü bu mesh'i referans alabilir."
+    },
+    {
+      "region_id": "hipofiz-bezi",
+      "match_type": "composite",
+      "zanatomy_objects": [],
+      "note": "Atlasta bu 'bütün organ/lob' objesi (.j uzantılı) 2 vertex'lik boş bir yer tutucu (muhtemelen sadece organizasyonel/etiket amaçlı); gerçek görsel yüzey, bu düğümün altındaki alt-bölgelerin (gyruslar/alt-yapılar) birleşiminden oluşuyor. Bu yüzden kendi mesh'i yok, JSON'da sadece üst-grup etiketi."
+    },
+    {
+      "region_id": "adenohipofiz",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Adenohypophysis"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "norohipofiz",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Neurohypophysis"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "beyin-sapi",
+      "match_type": "composite",
+      "zanatomy_objects": [],
+      "note": "Atlasta bu 'bütün organ/lob' objesi (.j uzantılı) 2 vertex'lik boş bir yer tutucu (muhtemelen sadece organizasyonel/etiket amaçlı); gerçek görsel yüzey, bu düğümün altındaki alt-bölgelerin (gyruslar/alt-yapılar) birleşiminden oluşuyor. Bu yüzden kendi mesh'i yok, JSON'da sadece üst-grup etiketi."
+    },
+    {
+      "region_id": "orta-beyin",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Midbrain.l",
+        "Midbrain.r"
+      ],
+      "note": "Hem genel (.g/.j) hem sol/sağ (.l/.r) varyantları var; Blender'da hangisinin görünür/kullanılacak geometri olduğu kontrol edilmeli. (Düzeltme: Midbrain.g aslında 3D metin etiketi (FONT tipi obje) olduğu için çıkarıldı, .j varyantı gerçek geometri.) Temizlik: 'Midbrain.j' boş yer tutucu olduğu için listeden çıkarıldı, .l/.r yeterli."
+    },
+    {
+      "region_id": "pons",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Pons.l",
+        "Pons.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "medulla-oblongata",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Medulla oblongata.l",
+        "Medulla oblongata.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "kraniyal-sinirler",
+      "match_type": "composite",
+      "zanatomy_objects": [],
+      "note": "'Cranial nerves.j' de diğer 'bütün grup' objeleri gibi boş (2 vertex) yer tutucu çıktı; kendi mesh'i yok, alt bölgelerin (12 sinir + çekirdekleri) birleşiminden otomatik olarak türetiliyor."
+    },
+    {
+      "region_id": "n-olfaktorius",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Olfactory nerve (I).l",
+        "Olfactory nerve (I).r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "n-optikus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Optic nerve (II).l",
+        "Optic nerve (II).r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "n-okulomotorius",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Oculomotor nerve (III).l",
+        "Oculomotor nerve (III).r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "okulomotor-cekirdek",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Nucleus of oculomotor nerve.l",
+        "Nucleus of oculomotor nerve.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "edinger-westphal-cekirdegi",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Accessory nucleus of oculomotor nerve.l",
+        "Accessory nucleus of oculomotor nerve.r"
+      ],
+      "note": "TA'da 'Accessory nucleus of oculomotor nerve' = Edinger-Westphal çekirdeğinin resmi anatomik adı."
+    },
+    {
+      "region_id": "n-troklearis",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Trochlear nerve (IV).l",
+        "Trochlear nerve (IV).r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "troklear-cekirdek",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Nucleus of trochlear nerve.l",
+        "Nucleus of trochlear nerve.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "n-trigeminus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Trigeminal nerve (V).l",
+        "Trigeminal nerve (V).r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "trigeminal-motor-cekirdegi",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Motor root of trigeminal nerve.l",
+        "Motor root of trigeminal nerve.r"
+      ],
+      "note": "Atlasta 'motor root' (kök) olarak geçiyor, tam olarak 'nucleus' etiketli değil ama aynı yapıya karşılık geliyor."
+    },
+    {
+      "region_id": "trigeminal-duyu-cekirdegi",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Sensory root of trigeminal nerve.l",
+        "Sensory root of trigeminal nerve.r"
+      ],
+      "note": "Atlasta 'sensory root' (kök) olarak geçiyor; bizim tanımladığımız geniş duyu çekirdeği kompleksinin basitleştirilmiş karşılığı."
+    },
+    {
+      "region_id": "n-abdusens",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Abducens nerve (VI).l",
+        "Abducens nerve (VI).r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "abdusens-cekirdegi",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Nucleus of abducens nerve.l",
+        "Nucleus of abducens nerve.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "n-fasiyalis",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Facial nerve (VII).l",
+        "Facial nerve (VII).r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "fasiyal-cekirdek",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Motor nucleus of facial nerve.l",
+        "Motor nucleus of facial nerve.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "n-vestibulokoklearis",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Vestibulocochlear nerve (VIII).l",
+        "Vestibulocochlear nerve (VIII).r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "koklear-cekirdekler",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Anterior cochlear nucleus.l",
+        "Anterior cochlear nucleus.r",
+        "Posterior cochlear nucleus.l",
+        "Posterior cochlear nucleus.r"
+      ],
+      "note": "Atlasta anterior ve posterior olarak iki ayrı çekirdek geliyor; bizim tek 'koklear çekirdekler' kaydımız bu ikisinin birleşimidir."
+    },
+    {
+      "region_id": "vestibuler-cekirdekler",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Vestibular nuclei.l",
+        "Vestibular nuclei.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "n-glossofaringeus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Glossopharyngeal nerve (IX).l",
+        "Glossopharyngeal nerve (IX).r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "nucleus-ambiguus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Nucleus ambiguus.l",
+        "Nucleus ambiguus.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "inferior-salivatuar-cekirdek",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Inferior salivatory nucleus.l",
+        "Inferior salivatory nucleus.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "n-vagus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Vagus nerve (X).l",
+        "Vagus nerve (X).r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "dorsal-motor-vagus-cekirdegi",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Posterior nucleus of vagus nerve.l",
+        "Posterior nucleus of vagus nerve.r"
+      ],
+      "note": "TA'da 'Posterior nucleus of vagus nerve' = dorsal motor çekirdeğin resmi adı."
+    },
+    {
+      "region_id": "traktus-solitarius-cekirdegi",
+      "match_type": "missing",
+      "zanatomy_objects": [],
+      "note": "Atlasta bu isimle bir obje var ama gerçekte 5 vertex'lik, yüzeysiz (0 poligon) bir iskelet çizgisi; katı bir yapı olarak render edilemiyor. Şematik nokta işaretleyici gerekecek."
+    },
+    {
+      "region_id": "n-aksesorius",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Accessory nerve (XI).l",
+        "Accessory nerve (XI).r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "spinal-aksesuar-cekirdek",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Nucleus of accessory nerve.l",
+        "Nucleus of accessory nerve.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "n-hipoglossus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Hypoglossal nerve (XII).l",
+        "Hypoglossal nerve (XII).r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "hipoglossal-cekirdek",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Nucleus of hypoglossal nerve.l",
+        "Nucleus of hypoglossal nerve.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "serebellum",
+      "match_type": "composite",
+      "zanatomy_objects": [],
+      "note": "Atlasta bu 'bütün organ/lob' objesi (.j uzantılı) 2 vertex'lik boş bir yer tutucu (muhtemelen sadece organizasyonel/etiket amaçlı); gerçek görsel yüzey, bu düğümün altındaki alt-bölgelerin (gyruslar/alt-yapılar) birleşiminden oluşuyor. Bu yüzden kendi mesh'i yok, JSON'da sadece üst-grup etiketi."
+    },
+    {
+      "region_id": "serebellar-vermis",
+      "match_type": "composite",
+      "zanatomy_objects": [
+        "Folium of vermis",
+        "Nodule of vermis",
+        "Pyramis of vermis",
+        "Tuber of vermis",
+        "Uvula of vermis"
+      ],
+      "note": "Vermis, atlasta tek parça değil, 5 ayrı lobülün (folium, nodulus, pyramis, tuber, uvula) toplamı olarak geliyor; sol/sağ ayrımı yok."
+    },
+    {
+      "region_id": "sol-serebellar-hemisfer",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Anterior quadrangular lobule.l",
+        "Posterior quadrangular lobule.l",
+        "Biventral lobule.l",
+        "Gracile lobule.l",
+        "Superior semilunar lobule.l",
+        "Inferior semilunar lobule.l",
+        "Tonsil of cerebellum.l",
+        "Flocculus.l",
+        "Peduncle of flocculus.l"
+      ],
+      "note": "İlk taramada gözden kaçmıştı: atlasta serebellar hemisferin gerçek lobülleri (quadrangular, biventral, gracile, semilunar lobüller, tonsil, flokkulus) ayrı mesh olarak mevcut."
+    },
+    {
+      "region_id": "sag-serebellar-hemisfer",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Anterior quadrangular lobule.r",
+        "Posterior quadrangular lobule.r",
+        "Biventral lobule.r",
+        "Gracile lobule.r",
+        "Superior semilunar lobule.r",
+        "Inferior semilunar lobule.r",
+        "Tonsil of cerebellum.r",
+        "Flocculus.r",
+        "Peduncle of flocculus.r"
+      ],
+      "note": "Sol hemisferin aynısı, sağ taraf lobülleri kullanılarak."
+    },
+    {
+      "region_id": "derin-serebellar-cekirdekler",
+      "match_type": "missing",
+      "zanatomy_objects": [],
+      "note": "Atlasta hiç yok (dentat, fastigial, emboliform, globose çekirdekleri bulunamadı); serebellum mesh'i içinde 4. ventrikül tabanına yakın şematik nokta olarak işaretlenmesi gerekecek."
+    },
+    {
+      "region_id": "beyaz-cevher-yollari",
+      "match_type": "composite",
+      "zanatomy_objects": [],
+      "note": "Corpus callosum + ön komissür + iç kapsül + arkuat fasikülün kavramsal grubu; kendi mesh'i yok."
+    },
+    {
+      "region_id": "corpus-callosum",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Corpus callosum"
+      ],
+      "note": "Sol/sağ ayrımı yok, tek obje (orta hat yapısı)."
+    },
+    {
+      "region_id": "on-komissur",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Anterior commissure"
+      ],
+      "note": "Sol/sağ ayrımı yok, tek obje."
+    },
+    {
+      "region_id": "ic-kapsul",
+      "match_type": "missing",
+      "zanatomy_objects": [],
+      "note": "Atlasta hiç yok; talamus ile bazal ganglionlar arasındaki V biçimli bölgede şematik olarak işaretlenmesi ya da basit bir geometriyle temsil edilmesi gerekecek."
+    },
+    {
+      "region_id": "arkuat-fasikul",
+      "match_type": "missing",
+      "zanatomy_objects": [],
+      "note": "Atlasta hiç yok (difüzyon-MRI traktografi verisi gerektirir); Broca-Wernicke alanları arasında basitleştirilmiş bir eğri/tüp olarak şematik gösterilmesi gerekecek."
+    },
+    {
+      "region_id": "ventrikuler-sistem",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Lateral ventricle.l",
+        "Lateral ventricle.r",
+        "Third ventricle",
+        "Fourth ventricle",
+        "Central canal"
+      ],
+      "note": "Üst-grup düğümüne artık kendi mesh'i verildi: lateral ventriküller + 3./4. ventrikül + santral kanalın birleşimi, tek parça olarak görünür. Koroid pleksus bilinçli olarak dışarıda bırakıldı; ayrı ve farklı (kırmızı) renkte gösterilecek."
+    },
+    {
+      "region_id": "lateral-ventrikuller",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Lateral ventricle.l",
+        "Lateral ventricle.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "ucuncu-ventrikul",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Third ventricle"
+      ],
+      "note": "Tek obje (orta hat yapısı)."
+    },
+    {
+      "region_id": "dorduncu-ventrikul",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Fourth ventricle"
+      ],
+      "note": "Tek obje (orta hat yapısı)."
+    },
+    {
+      "region_id": "koroid-pleksus",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Choroid plexus.l",
+        "Choroid plexus.r"
+      ],
+      "note": null
+    },
+    {
+      "region_id": "paracentral-lobul",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Paracentral gyrus and sulcus*.l",
+        "Paracentral gyrus and sulcus*.r"
+      ],
+      "note": "TA'da 'Paracentral gyrus and sulcus' olarak geçen, precentral/postcentral girusun medial yüzeydeki devamı."
+    },
+    {
+      "region_id": "broca-karsiligi-alani",
+      "match_type": "direct",
+      "zanatomy_objects": [
+        "Opercular part of inferior frontal gyrus.r",
+        "Triangular part of inferior frontal gyrus.r"
+      ],
+      "note": "Broca alanının sağ hemisferdeki ayna karşılığı; konuşmanın prozodik/duygusal tonuyla ilişkilendirilir."
+    }
+  ]
+}

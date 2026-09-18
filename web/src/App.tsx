@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useMemo, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, Html, useGLTF } from "@react-three/drei";
 import { BrainModel, toRegionId } from "./BrainModel";
 import { Sidebar } from "./Sidebar";
@@ -12,6 +12,7 @@ const KNOWN_MESH_NAMES = new Set<string>();
 
 function App() {
   const [regions, setRegions] = useState<Region[] | null>(null);
+  const [ownContentIds, setOwnContentIds] = useState<Set<string> | null>(null);
   const [meshNames, setMeshNames] = useState<Set<string>>(KNOWN_MESH_NAMES);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -24,35 +25,32 @@ function App() {
       .then((data: RegionsFile) => setRegions(data.regions));
   }, []);
 
+  useEffect(() => {
+    fetch("/data/zanatomy-eslestirme.json")
+      .then((res) => res.json())
+      .then((data: { mappings: { region_id: string; zanatomy_objects: string[] }[] }) => {
+        // a region is shown by default only if it was directly assigned real
+        // source geometry; regions that only got a mesh because we merged
+        // their children's geometry for them ("whole category" nodes like
+        // Serebrum or Bazal Ganglionlar) stay hidden until selected, since
+        // their shape exactly duplicates what's already on screen
+        const ids = new Set(
+          data.mappings.filter((m) => m.zanatomy_objects.length > 0).map((m) => m.region_id)
+        );
+        setOwnContentIds(ids);
+      });
+  }, []);
+
   const regionsById = useMemo(() => {
     const map = new Map<string, Region>();
     if (regions) for (const r of regions) map.set(r.id, r);
     return map;
   }, [regions]);
 
-  // regions with no children are "leaves" - the only ones shown by default,
-  // since a parent's mesh (when it has one) exactly covers its children's
-  // combined space and would otherwise be rendered on top of them
-  const leafIds = useMemo(() => {
-    const withChildren = new Set<string>();
-    if (regions) {
-      for (const r of regions) {
-        if (r.parent_id) withChildren.add(r.parent_id);
-      }
-    }
-    const leaves = new Set<string>();
-    if (regions) {
-      for (const r of regions) {
-        if (!withChildren.has(r.id)) leaves.add(r.id);
-      }
-    }
-    return leaves;
-  }, [regions]);
-
   const hoveredRegion = hoveredId ? regionsById.get(hoveredId) ?? null : null;
   const selectedRegion = selectedId ? regionsById.get(selectedId) ?? null : null;
 
-  if (!regions) {
+  if (!regions || !ownContentIds) {
     return (
       <div className="loading-screen">
         <p>Beyin atlası yükleniyor…</p>
@@ -103,6 +101,7 @@ function App() {
         )}
 
         <Canvas camera={{ position: [0.55, 0.22, 0.55], fov: 40 }}>
+          <CenterCameraOnMount />
           <color attach="background" args={["#f4f5f7"]} />
           <ambientLight intensity={0.6} />
           <directionalLight position={[1, 1.2, 0.8]} intensity={1.4} />
@@ -116,7 +115,7 @@ function App() {
           >
             <BrainModel
               regionsById={regionsById}
-              leafIds={leafIds}
+              defaultVisibleIds={ownContentIds}
               hoveredId={hoveredId}
               selectedId={selectedId}
               isolate={isolate}
@@ -126,6 +125,7 @@ function App() {
             <MeshNameReporter onNames={setMeshNames} />
           </Suspense>
           <OrbitControls
+            target={[0, 0, 0]}
             autoRotate={autoRotate}
             autoRotateSpeed={1.2}
             enableDamping
@@ -145,6 +145,15 @@ function App() {
       />
     </div>
   );
+}
+
+function CenterCameraOnMount() {
+  const { camera } = useThree();
+  useEffect(() => {
+    camera.lookAt(0, 0, 0);
+    camera.updateProjectionMatrix();
+  }, [camera]);
+  return null;
 }
 
 function MeshNameReporter({ onNames }: { onNames: (names: Set<string>) => void }) {
